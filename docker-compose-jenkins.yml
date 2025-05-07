@@ -14,7 +14,5 @@ services:
     container_name: backend_jenkins
     ports:
       - "5001:5001"
-    env_file:
-      - ./server.env
     volumes:
       - ./server:/app/server
