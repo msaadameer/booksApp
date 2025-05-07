@@ -1,16 +1,20 @@
 version: '3.8'
+
 services:
   frontend:
     build: ./client
+    container_name: frontend_jenkins
     ports:
-      - "3000:80"  # serve via localhost:3000
-    depends_on:
-      - backend
+      - "3001:80"
+    volumes:
+      - ./client:/app/client
 
   backend:
     build: ./server
+    container_name: backend_jenkins
     ports:
-      - "5000:5000"
+      - "5001:5001"
     env_file:
-      - ./server/.env
-  
+      - ./server.env
+    volumes:
+      - ./server:/app/server
