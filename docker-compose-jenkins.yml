@@ -1,14 +1,6 @@
 version: '3.8'
 
 services:
-  frontend:
-    build: ./Client
-    container_name: frontend_jenkins
-    ports:
-      - "3001:80"
-    volumes:
-      - ./Client:/app/client
-
   backend:
     build: ./Server
     container_name: backend_jenkins
@@ -16,3 +8,13 @@ services:
       - "5001:5001"
     volumes:
       - ./Server:/app/server
+
+  frontend:
+    build: ./Client
+    container_name: frontend_jenkins
+    ports:
+      - "3001:80"
+    volumes:
+      - ./Client:/app/client
+    depends_on:
+      - backend
