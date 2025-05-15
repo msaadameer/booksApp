@@ -19,7 +19,7 @@ const URI = process.env.MongoDBURI;
 // connect to mongoDB
 try {
     mongoose.connect(URI);
-    console.log("Connected to mongoDB");
+    console.log("Connected to mongoDB!");
 } catch (error) {
     console.log("Error: ", error);
 }
